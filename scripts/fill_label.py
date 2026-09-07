@@ -17,7 +17,7 @@ OZ_TO_GRAMS = 28.3495
 EXPORT_DPI = 300
 NBSP = "\u00A0"
 
-TEMPLATE_PATH = Path("templates/label.svg")
+TEMPLATE_PATH = Path("templates/label-4oz.svg") # temp  CHANGE ME
 RECIPES_PATH = Path("recipes.csv")
 BUILD_DIR = Path("build/labels")
 
@@ -27,7 +27,9 @@ def weight_display(oz: int) -> str:
     return f"{oz} oz / {grams} g"
 
 
-def price_display(price: int) -> str:
+def price_display(price) -> str:
+    if price is None:
+        return "$"
     return f"${price}"
 
 

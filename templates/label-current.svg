@@ -8,7 +8,7 @@
    version="1.1"
    id="svg1"
    inkscape:version="1.4.4 (dcaf3e7d9e, 2026-05-05)"
-   sodipodi:docname="label-5oz.svg"
+   sodipodi:docname="label.svg"
    inkscape:export-filename="../PNG/Lemon PoppySeed 3oz.png"
    inkscape:export-xdpi="300"
    inkscape:export-ydpi="300"
@@ -29,8 +29,8 @@
      inkscape:zoom="5.6643146"
      inkscape:cx="363.94518"
      inkscape:cy="31.248264"
-     inkscape:window-width="2560"
-     inkscape:window-height="1440"
+     inkscape:window-width="2516"
+     inkscape:window-height="1098"
      inkscape:window-x="0"
      inkscape:window-y="0"
      inkscape:window-maximized="1"
@@ -42,9 +42,14 @@
        id="guide52"
        inkscape:locked="false" />
     <sodipodi:guide
-       position="114.62773,30.024346"
+       position="123.54944,26.614475"
        orientation="1,0"
        id="guide58"
+       inkscape:locked="false" />
+    <sodipodi:guide
+       position="96.270474,32.359874"
+       orientation="1,0"
+       id="guide1"
        inkscape:locked="false" />
     <sodipodi:guide
        position="160.21724,18.626968"
@@ -62,14 +67,9 @@
        id="guide7"
        inkscape:locked="false" />
     <sodipodi:guide
-       position="60.163207,28.389476"
+       position="69.217211,20.39905"
        orientation="1,0"
        id="guide9"
-       inkscape:locked="false" />
-    <sodipodi:guide
-       position="87.472101,30.779196"
-       orientation="1,0"
-       id="guide2"
        inkscape:locked="false" />
   </sodipodi:namedview>
   <defs
@@ -179,16 +179,16 @@
          id="ingredients-text"><tspan
            x="160.26074"
            y="5.4571864"
-           id="tspan1">Coconut Oil, Palm Oil, Safflower Oil, Glycerin, Goat's Milk, Purified Water, </tspan><tspan
+           id="tspan4">Coconut Oil, Palm Oil, Safflower Oil, Glycerin, Goat's Milk, Purified Water, </tspan><tspan
            x="162.80074"
            y="7.2210767"
-           id="tspan8">Sodium Hydroxide, Sorbitol, Propylene Glycol, Sorbitan Oleate, Oat </tspan><tspan
+           id="tspan11">Sodium Hydroxide, Sorbitol, Propylene Glycol, Sorbitan Oleate, Oat </tspan><tspan
            x="163.74266"
            y="8.9849669"
-           id="tspan9">Protein, Titanium Dioxide, Mica, Parfum, Citrus Sinensis Peel Oil </tspan><tspan
+           id="tspan12">Protein, Titanium Dioxide, Mica, Parfum, Citrus Sinensis Peel Oil </tspan><tspan
            x="172.46686"
            y="10.748857"
-           id="tspan10">Expressed, Citrus Aurantium Dulcis Peel </tspan></text>
+           id="tspan13">Expressed, Citrus Aurantium Dulcis Peel </tspan></text>
       <g
          id="back-logo-info"
          transform="translate(158.80294,-0.20250625)">
@@ -238,7 +238,7 @@
     </g>
     <g
        id="front-label"
-       transform="translate(-18.520839)">
+       transform="translate(-9.5250005)">
       <g
          id="logo"
          transform="translate(75.240627,-3.1750001)">

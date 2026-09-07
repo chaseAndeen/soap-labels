@@ -8,7 +8,7 @@
    version="1.1"
    id="svg1"
    inkscape:version="1.4.4 (dcaf3e7d9e, 2026-05-05)"
-   sodipodi:docname="label-5oz.svg"
+   sodipodi:docname="label-3oz.svg"
    inkscape:export-filename="../PNG/Lemon PoppySeed 3oz.png"
    inkscape:export-xdpi="300"
    inkscape:export-ydpi="300"
@@ -27,27 +27,27 @@
      inkscape:deskcolor="#d1d1d1"
      inkscape:document-units="in"
      inkscape:zoom="5.6643146"
-     inkscape:cx="363.94518"
-     inkscape:cy="31.248264"
-     inkscape:window-width="2560"
-     inkscape:window-height="1440"
+     inkscape:cx="316.27834"
+     inkscape:cy="52.433528"
+     inkscape:window-width="1246"
+     inkscape:window-height="1328"
      inkscape:window-x="0"
      inkscape:window-y="0"
      inkscape:window-maximized="1"
      inkscape:current-layer="layer1"
      showguides="true">
     <sodipodi:guide
-       position="212.57978,15.684203"
+       position="212.57978,-4.1210769"
        orientation="1,0"
        id="guide52"
        inkscape:locked="false" />
     <sodipodi:guide
-       position="114.62773,30.024346"
+       position="82.350725,-8.3717382"
        orientation="1,0"
-       id="guide58"
+       id="guide56"
        inkscape:locked="false" />
     <sodipodi:guide
-       position="160.21724,18.626968"
+       position="160.21724,-5.2421304"
        orientation="1,0"
        id="guide4"
        inkscape:locked="false" />
@@ -62,14 +62,9 @@
        id="guide7"
        inkscape:locked="false" />
     <sodipodi:guide
-       position="60.163207,28.389476"
+       position="136.78185,2.1549254"
        orientation="1,0"
-       id="guide9"
-       inkscape:locked="false" />
-    <sodipodi:guide
-       position="87.472101,30.779196"
-       orientation="1,0"
-       id="guide2"
+       id="guide8"
        inkscape:locked="false" />
   </sodipodi:namedview>
   <defs
@@ -238,7 +233,7 @@
     </g>
     <g
        id="front-label"
-       transform="translate(-18.520839)">
+       transform="translate(3.7041668)">
       <g
          id="logo"
          transform="translate(75.240627,-3.1750001)">

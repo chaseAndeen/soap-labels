@@ -15,7 +15,9 @@ def load_pricing():
     pricing = {}
     with PRICING_PATH.open(newline="") as f:
         for row in csv.DictReader(f):
-            pricing[(row["recipe"], int(row["oz"]))] = int(row["price"])
+            price_str = row["price"].strip()
+            price = int(price_str) if price_str else None
+            pricing[(row["recipe"], int(row["oz"]))] = price
     return pricing
 
 
