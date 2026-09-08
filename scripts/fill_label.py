@@ -17,7 +17,7 @@ OZ_TO_GRAMS = 28.3495
 EXPORT_DPI = 300
 NBSP = "\u00A0"
 
-TEMPLATE_PATH = Path("templates/label-4oz.svg") # temp  CHANGE ME
+TEMPLATE_PATH = Path("templates/label-5oz.svg") # temp  CHANGE ME
 RECIPES_PATH = Path("recipes.csv")
 BUILD_DIR = Path("build/labels")
 

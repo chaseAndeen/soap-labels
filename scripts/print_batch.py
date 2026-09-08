@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Composite a flat list of label PNGs into print-ready sheets: fixed 10-slot
 grid, one-inch labels, centered top/bottom, unused slots left blank, with
-dashed cut lines at every slot boundary."""
+edge marker cut lines at every slot boundary."""
 
 import argparse
 import subprocess
@@ -9,14 +9,14 @@ from pathlib import Path
 from reportlab.pdfgen import canvas
 
 SLOTS_PER_SHEET = 10
-SLOT_HEIGHT = 72        # 1 inch, in points
+SLOT_HEIGHT = 72         # 1 inch, in points
 PAGE_WIDTH = 612         # 8.5in Letter width, in points
 PAGE_HEIGHT = 792        # 11in Letter height, in points
 MARGIN_TOP = (PAGE_HEIGHT - SLOTS_PER_SHEET * SLOT_HEIGHT) / 2  # 36pt = 0.5in
 
 CUT_LINE_GRAY_K = 0.5  # 50% black, defined in CMYK directly
 CUT_LINE_WIDTH = 0.5
-CUT_LINE_DASH = [2, 2]
+TICK_LENGTH = 18  
 
 BUILD_SHEETS_DIR = Path("build/sheets")
 
@@ -27,7 +27,6 @@ def chunk(items, size):
 
 
 def build_sheet(label_pngs, out_path):
-    """label_pngs: up to SLOTS_PER_SHEET Path objects. Slot 0 is topmost."""
     c = canvas.Canvas(str(out_path), pagesize=(PAGE_WIDTH, PAGE_HEIGHT))
 
     for i, png_path in enumerate(label_pngs):
@@ -38,10 +37,10 @@ def build_sheet(label_pngs, out_path):
 
     c.setStrokeColorCMYK(0, 0, 0, CUT_LINE_GRAY_K)
     c.setLineWidth(CUT_LINE_WIDTH)
-    c.setDash(*CUT_LINE_DASH)
     for i in range(SLOTS_PER_SHEET + 1):
         y = PAGE_HEIGHT - MARGIN_TOP - i * SLOT_HEIGHT
-        c.line(0, y, PAGE_WIDTH, y)
+        c.line(0, y, TICK_LENGTH, y)                           # left edge tick
+        c.line(PAGE_WIDTH - TICK_LENGTH, y, PAGE_WIDTH, y)     # right edge tick
 
     c.showPage()
     c.save()
