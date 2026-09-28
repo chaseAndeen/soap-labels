@@ -72,9 +72,11 @@ if __name__ == "__main__":
                          help="send generated sheets to the printer")
     parser.add_argument("--printer", default=None,
                          help="CUPS printer name (default: system default printer)")
+    parser.add_argument("--no-price", action="store_true",
+                         help="leave label prices blank, ignoring pricing.csv prices")
     args = parser.parse_args()
 
-    labels = run.build_flat_label_list()
+    labels = run.build_flat_label_list(ignore_price=args.no_price)
     sheets = build_sheets(labels)
     print(f"Built {len(sheets)} sheet(s):")
     for path in sheets:

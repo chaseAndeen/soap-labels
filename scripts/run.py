@@ -11,26 +11,28 @@ MANIFEST_PATH = Path("manifest.csv")
 PRICING_PATH = Path("pricing.csv")
 
 
-def load_pricing():
+def load_pricing(ignore_price=False):
     pricing = {}
     with PRICING_PATH.open(newline="") as f:
         for row in csv.DictReader(f):
-            price_str = row["price"].strip()
-            price = int(price_str) if price_str else None
-            pricing[(row["recipe"], int(row["oz"]))] = price
+            if ignore_price:
+                price = None
+            else:
+                price_str = row["price"].strip()
+                price = int(price_str) if price_str else None
+            pricing[(row["recipe"], float(row["oz"]))] = price
     return pricing
-
 
 def load_manifest():
     rows = []
     with MANIFEST_PATH.open(newline="") as f:
         for row in csv.DictReader(f):
-            rows.append((row["recipe"], int(row["oz"]), int(row["qty"])))
+            rows.append((row["recipe"], float(row["oz"]), int(row["qty"])))
     return rows
 
 
-def build_flat_label_list():
-    pricing = load_pricing()
+def build_flat_label_list(ignore_price=False):
+    pricing = load_pricing(ignore_price=ignore_price)
     manifest = load_manifest()
 
     flat_list = []

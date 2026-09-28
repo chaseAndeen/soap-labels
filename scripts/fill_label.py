@@ -8,6 +8,7 @@ import csv
 import subprocess
 import sys
 from pathlib import Path
+from typing import Optional
 from lxml import etree
 from PIL import Image
 
@@ -17,19 +18,22 @@ OZ_TO_GRAMS = 28.3495
 EXPORT_DPI = 300
 NBSP = "\u00A0"
 
-TEMPLATE_PATH = Path("templates/label-5oz.svg") # temp  CHANGE ME
+TEMPLATE_PATH = Path("templates/label.svg")
 RECIPES_PATH = Path("recipes.csv")
 BUILD_DIR = Path("build/labels")
 
 
-def weight_display(oz: int) -> str:
+def format_oz(oz: float) -> str:
+    return f"{oz:g}"
+
+def weight_display(oz: float) -> str:
     grams = round(oz * OZ_TO_GRAMS)
-    return f"{oz} oz / {grams} g"
+    return f"{format_oz(oz)} oz / {grams} g"
 
 
-def price_display(price) -> str:
+def price_display(price: Optional[int]) -> str:
     if price is None:
-        return "$"
+        return ""
     return f"${price}"
 
 
@@ -66,7 +70,7 @@ def set_ingredients(tree, ingredients_raw: str) -> None:
     new_tspan.text = format_ingredients(ingredients_raw)
 
 
-def fill_svg(recipe: str, oz: int, price: int) -> Path:
+def fill_svg(recipe: str, oz: int, price: Optional[int]) -> Path:
     recipes = load_recipes()
     if recipe not in recipes:
         raise KeyError(f"No recipe data for '{recipe}' — check recipes.csv")
@@ -81,7 +85,7 @@ def fill_svg(recipe: str, oz: int, price: int) -> Path:
     set_ingredients(tree, data["ingredients"])
 
     BUILD_DIR.mkdir(parents=True, exist_ok=True)
-    out_svg = BUILD_DIR / f"{recipe}_{oz}oz.svg"
+    out_svg = BUILD_DIR / f"{recipe}_{format_oz(oz)}oz.svg"
     tree.write(str(out_svg))
     return out_svg
 
@@ -111,13 +115,13 @@ def convert_to_cmyk(png_path: Path) -> Path:
     return cmyk_path
 
 
-def build_label(recipe: str, oz: int, price: int) -> Path:
+def build_label(recipe: str, oz: int, price: Optional[int]) -> Path:
     svg_path = fill_svg(recipe, oz, price)
     png_path = export_png(svg_path)
     return convert_to_cmyk(png_path)
 
 
 if __name__ == "__main__":
-    recipe, oz, price = sys.argv[1], int(sys.argv[2]), int(sys.argv[3])
+    recipe, oz, price = sys.argv[1], float(sys.argv[2]), int(sys.argv[3])
     result = build_label(recipe, oz, price)
     print(f"Built: {result}")
